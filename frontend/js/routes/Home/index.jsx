@@ -15,8 +15,6 @@ export default function Home() {
 
   const classes = useStyles();
 
-  const theme = useTheme();
-
   return (
     <Grid container>
       <Grid item xs={12} className={classes.main}>

@@ -1,7 +1,7 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
-import purple from '@material-ui/core/colors/purple';
-import green from '@material-ui/core/colors/green';
+import indigo from '@material-ui/core/colors/indigo';
+import amber from '@material-ui/core/colors/amber';
 import red from '@material-ui/core/colors/red';
 
 const theme = createMuiTheme({
@@ -10,11 +10,8 @@ const theme = createMuiTheme({
     white: '#fff',
   },
   palette: {
-    primary: purple, // Purple and green play nicely together.
-    secondary: {
-      ...green,
-      A400: '#00e677',
-    },
+    primary: indigo,
+    secondary: amber,
     error: red,
   },
   background: {
