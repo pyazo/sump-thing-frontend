@@ -11,9 +11,7 @@ export default function App({ children }) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div>
-        { children }
-      </div>
+      { children }
     </ThemeProvider>
   );
 }
