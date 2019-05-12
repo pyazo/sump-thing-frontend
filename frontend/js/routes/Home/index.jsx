@@ -14,10 +14,10 @@ function Home({ classes }) {
   return (
     <Grid container>
       <Grid item xs={12} className={classes.main}>
-        <Typography variant="headline">React Prototype App</Typography>
+        <Typography variant="h5">React Prototype App</Typography>
         <br />
-        <Button variant="raised" onClick={() => setCount(count + 1)}>Increment</Button>
-        <Typography variant="subheading">{count}</Typography>
+        <Button variant="contained" onClick={() => setCount(count + 1)}>Increment</Button>
+        <Typography variant="subtitle2">{count}</Typography>
       </Grid>
     </Grid>
   );
