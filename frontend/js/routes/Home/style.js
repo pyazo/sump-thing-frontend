@@ -1,9 +1,12 @@
-// NOTE: This is how styling should be done!
 const styles = theme => ({
   main: {
-    backgroundColor: theme.palette.primary,
-    color: theme.common.black,
-    padding: 20,
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.contrastText,
+    padding: theme.spacing(10),
+    height: `calc(100vh - ${theme.spacing(8)}px)`,
+  },
+  subtitle: {
+    paddingTop: theme.spacing(5),
   },
 });
 
