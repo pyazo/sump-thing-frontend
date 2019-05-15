@@ -8,6 +8,10 @@ const styles = theme => ({
   subtitle: {
     paddingTop: theme.spacing(5),
   },
+  logo: {
+    height: theme.spacing(15),
+    marginBottom: theme.spacing(2),
+  },
 });
 
 export default styles;

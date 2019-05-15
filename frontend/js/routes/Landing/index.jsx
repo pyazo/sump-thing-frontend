@@ -7,6 +7,8 @@ import { makeStyles } from '@material-ui/styles';
 
 import Header from 'js/common/components/Header';
 
+import LightLogo from 'img/logo-light.svg';
+
 import style from './style';
 
 const useStyles = makeStyles(style);
@@ -18,6 +20,9 @@ export default function Home() {
     <Grid container>
       <Header />
       <Grid item xs={12} className={classes.main}>
+        <Grid item xs={12}>
+          <img className={classes.logo} src={LightLogo} alt="Sump Thing Logo" />
+        </Grid>
         <Grid item md={7} sm={8} xs={12}>
           <Typography align="left" variant="h3">Your aquariums.</Typography>
           <Typography align="left" variant="h3">Totally online.</Typography>

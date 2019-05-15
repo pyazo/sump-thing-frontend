@@ -22,7 +22,10 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
-    alias: { js: path.join(process.cwd(), 'frontend', 'js') },
+    alias: {
+      js: path.join(process.cwd(), 'frontend', 'js'),
+      img: path.join(process.cwd(), 'frontend', 'img'),
+    },
   },
   module: { rules },
   devServer: {
