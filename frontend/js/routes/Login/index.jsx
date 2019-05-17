@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+
+import store from 'store';
 
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -9,16 +12,46 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/styles';
 
 import Header from 'js/common/components/Header';
+import Loading from 'js/common/components/Loading';
+import api from 'js/api';
 
 import style from './style';
 
 const useStyles = makeStyles(style);
 
-export default function Login() {
+export default function Login({ history }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState();
 
   const classes = useStyles();
+
+  const login = async () => {
+    try {
+      setLoading(true);
+      setError();
+
+      const resp = await api.login(email, password);
+
+      if (resp.data.error) {
+        setError(resp.data.error_description);
+        setLoading(false);
+
+        return;
+      }
+
+      store.set('token', resp.data.access_token);
+
+      history.push('/dashboard');
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <Grid container justify="center" align="center" className={classes.main}>
@@ -31,6 +64,16 @@ export default function Login() {
                 Login
               </Typography>
             </Grid>
+
+            {
+              error && (
+                <Grid item xs={12}>
+                  <Typography align="center" variant="subtitle2" className={classes.error}>
+                    {error}
+                  </Typography>
+                </Grid>
+              )
+            }
 
             <Grid item xs={12}>
               <TextField
@@ -56,7 +99,7 @@ export default function Login() {
             </Grid>
 
             <Grid item>
-              <Button color="primary" variant="contained" className={classes.login}>
+              <Button color="primary" variant="contained" className={classes.login} onClick={login}>
                 Login
               </Button>
             </Grid>
@@ -66,9 +109,13 @@ export default function Login() {
                 Forgot Password
               </Typography>
             </Grid>
-        </Grid>
+          </Grid>
         </Paper>
       </Grid>
     </Grid>
   );
 }
+
+Login.propTypes = {
+  history: PropTypes.object.isRequired,
+};

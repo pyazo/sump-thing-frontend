@@ -28,7 +28,7 @@ export default function Home() {
           <Typography align="left" variant="h3">Totally online.</Typography>
         </Grid>
         <Grid item xs={12} className={classes.subtitle}>
-          <Typography align="left" variant="subtitle1">See how our open source project can take your hobby or business to the next level.</Typography>
+          <Typography align="left" variant="subtitle1">See how our open source project can take your hobby or business to the next level</Typography>
         </Grid>
       </Grid>
     </Grid>

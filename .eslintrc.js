@@ -22,9 +22,8 @@ module.exports = {
       "es6": true
     },
     "globals": {
-      "_": true,
       "expect": true,
-      "request": true,
+      "globals": true,
     },
     "rules": {
       "no-warning-comments": "off",

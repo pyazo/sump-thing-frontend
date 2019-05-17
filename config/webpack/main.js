@@ -57,6 +57,9 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'globals.API_URL': JSON.stringify('http://localhost:5000'),
+    }),
     new HtmlWebpackPlugin({
       template: 'frontend/index.html',
       files: {
