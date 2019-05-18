@@ -12,12 +12,14 @@ import {
 import App from './routes/App';
 import Landing from './routes/Landing';
 import Login from './routes/Login';
+import Dashboard from './routes/Dashboard';
 
 render(
   <Router>
     <App>
       <Route exact path="/" component={Landing} />
       <Route path="/login" component={Login} />
+      <Route path="/dashboard" component={Dashboard} />
     </App>
   </Router>,
   document.getElementById('root')

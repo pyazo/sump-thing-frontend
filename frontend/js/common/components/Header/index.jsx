@@ -11,14 +11,14 @@ import style from './style';
 
 const useStyles = makeStyles(style);
 
-export default function Header({ elevated }) {
+export default function Header({ elevated, text }) {
   const classes = useStyles();
 
   return (
     <Grid item xs={12} className={`${classes.container} ${elevated && classes.elevated}`}>
       <Grid container justify="space-between" alignItems="center">
         <Grid item sm={4} xs={6}>
-          <Typography align="center" variant="subtitle1">Sump Thing</Typography>
+          <Typography align="center" variant="subtitle1">{text || 'Sump Thing'}</Typography>
         </Grid>
         <Grid item sm={4} xs={6}>
           <Grid container justify="center">
