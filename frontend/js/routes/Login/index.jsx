@@ -46,6 +46,9 @@ export default function Login({ history }) {
       history.push('/dashboard');
     } catch (err) {
       console.error(err);
+
+      setError('Internal server error.');
+      setLoading(false);
     }
   };
 
