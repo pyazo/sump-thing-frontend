@@ -34,8 +34,10 @@ export default function Header({ elevated, text }) {
 
 Header.propTypes = {
   elevated: PropTypes.bool,
+  text: PropTypes.string,
 };
 
 Header.defaultProps = {
   elevated: false,
+  text: '',
 };

@@ -52,6 +52,12 @@ export default function Login({ history }) {
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      login();
+    }
+  };
+
   if (loading) {
     return <Loading />;
   }
@@ -97,6 +103,9 @@ export default function Login({ history }) {
                 name="password"
                 type="password"
                 onChange={e => setPassword(e.target.value)}
+                inputProps={{
+                  onKeyPress: handleKeyPress,
+                }}
                 fullWidth
               />
             </Grid>
