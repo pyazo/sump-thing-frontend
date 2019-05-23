@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-
-import store from 'store';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -13,52 +11,28 @@ import { makeStyles } from '@material-ui/styles';
 
 import Header from 'js/common/components/Header';
 import Loading from 'js/common/components/Loading';
-import api from 'js/api';
+
+import { login } from 'js/redux/auth';
 
 import style from './style';
 
 const useStyles = makeStyles(style);
 
-export default function Login({ history }) {
+export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState();
+  const auth = useSelector(state => state.auth);
 
   const classes = useStyles();
-
-  const login = async () => {
-    try {
-      setLoading(true);
-      setError();
-
-      const resp = await api.login(email, password);
-
-      if (resp.data.error) {
-        setError(resp.data.error_description);
-        setLoading(false);
-
-        return;
-      }
-
-      store.set('token', resp.data.access_token);
-
-      history.push('/dashboard');
-    } catch (err) {
-      console.error(err);
-
-      setError('Internal server error.');
-      setLoading(false);
-    }
-  };
+  const dispatch = useDispatch();
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
-      login();
+      dispatch(login(email, password));
     }
   };
 
-  if (loading) {
+  if (auth.loading) {
     return <Loading />;
   }
 
@@ -75,10 +49,10 @@ export default function Login({ history }) {
             </Grid>
 
             {
-              error && (
+              auth.error && (
                 <Grid item xs={12}>
                   <Typography align="center" variant="subtitle2" className={classes.error}>
-                    {error}
+                    {auth.error}
                   </Typography>
                 </Grid>
               )
@@ -111,7 +85,7 @@ export default function Login({ history }) {
             </Grid>
 
             <Grid item>
-              <Button color="primary" variant="contained" className={classes.login} onClick={login}>
+              <Button color="primary" variant="contained" className={classes.login} onClick={() => dispatch(login(email, password))}>
                 Login
               </Button>
             </Grid>
@@ -127,7 +101,3 @@ export default function Login({ history }) {
     </Grid>
   );
 }
-
-Login.propTypes = {
-  history: PropTypes.object.isRequired,
-};
