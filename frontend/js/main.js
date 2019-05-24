@@ -8,12 +8,13 @@ import { Provider } from 'react-redux';
 import { Route } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 
+import configureStore, { history } from 'js/store';
+import AuthenticatedRoute from 'js/common/components/AuthenticatedRoute';
+
 import App from './routes/App';
 import Landing from './routes/Landing';
 import Login from './routes/Login';
 import Dashboard from './routes/Dashboard';
-
-import configureStore, { history } from 'js/store';
 
 const store = configureStore();
 
@@ -23,7 +24,7 @@ render(
       <App>
         <Route exact path="/" component={Landing} />
         <Route path="/login" component={Login} />
-        <Route path="/dashboard" component={Dashboard} />
+        <AuthenticatedRoute path="/dashboard" component={Dashboard} />
       </App>
     </ConnectedRouter>
   </Provider>,

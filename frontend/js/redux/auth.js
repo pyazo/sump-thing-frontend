@@ -6,10 +6,8 @@ import api from 'js/api';
 const LOADING = 'sumpthing/auth/loading';
 const AUTH_SUCCESS = 'sumpthing/auth/authenticated';
 const AUTH_FAIL = 'sumpthing/auth/unauthenticated';
-const LOGIN = 'sumpthing/auth/login';
 const LOGIN_SUCCESS = 'sumpthing/auth/logged_in';
 const LOGIN_FAIL = 'sumpthing/auth/login_fail';
-const LOGOUT = 'sumpthing/auth/logout';
 const LOGOUT_SUCCESS = 'sumpthing/auth/logged_out';
 const LOGOUT_FAIL = 'sumpthing/auth/logout_fail';
 
@@ -24,6 +22,14 @@ export default function reducer(state = {}, action = {}) {
     case LOGIN_FAIL:
       return {
         ...state, loading: false, login: false, error: action.error,
+      };
+    case AUTH_SUCCESS:
+      return {
+        ...state, loading: false, isLoggedIn: true, hasAuthed: true,
+      };
+    case AUTH_FAIL:
+      return {
+        ...state, loading: false, isLoggedIn: false, hasAuthed: true,
       };
     default:
       return state;
@@ -51,6 +57,22 @@ export function login(username, password) {
       console.error(err);
 
       dispatch({ type: LOGIN_FAIL, error: 'Internal server error.' });
+    }
+  };
+}
+
+export function validateToken() {
+  return async (dispatch) => {
+    dispatch({ type: LOADING });
+
+    try {
+      await api.validateToken();
+
+      dispatch({ type: AUTH_SUCCESS });
+    } catch (err) {
+      console.error(err);
+
+      dispatch({ type: AUTH_FAIL });
     }
   };
 }
