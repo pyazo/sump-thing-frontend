@@ -17,11 +17,11 @@ export default function reducer(state = {}, action = {}) {
       return { ...state, loading: true, error: null };
     case LOGIN_SUCCESS:
       return {
-        ...state, isLoggedIn: true, loading: false, error: null,
+        ...state, loading: false, error: null,
       };
     case LOGIN_FAIL:
       return {
-        ...state, loading: false, login: false, error: action.error,
+        ...state, loading: false, error: action.error,
       };
     case AUTH_SUCCESS:
       return {
@@ -48,6 +48,8 @@ export function login(username, password) {
         return;
       }
 
+      await dispatch({ type: AUTH_SUCCESS });
+
       store.set('token', data.access_token);
 
       dispatch(push('/dashboard'));
@@ -56,6 +58,7 @@ export function login(username, password) {
     } catch (err) {
       console.error(err);
 
+      dispatch({ type: AUTH_FAIL });
       dispatch({ type: LOGIN_FAIL, error: 'Internal server error.' });
     }
   };

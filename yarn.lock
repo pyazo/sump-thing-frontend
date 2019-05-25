@@ -694,14 +694,14 @@
   resolved "https://registry.yarnpkg.com/@babel/preset-stage-2/-/preset-stage-2-7.0.0.tgz#11ec31263c8466aad63829bba724607029ddf0a5"
   integrity sha512-A8ia2Wus0OAP6hh28ZgPSCBJEX3Jnql3kg9di/I+Lmg1gbJXgDZBrHr/UGZXl20Vi1lXgMuUq8c8J899KFr5gA==
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1":
+"@babel/runtime@^7.1.2":
   version "7.4.4"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.4.tgz#dc2e34982eb236803aa27a07fea6857af1b9171d"
   integrity sha512-w0+uT71b6Yi7i5SE0co4NioIpSYS6lLiXvCzWzGSKvpK5vdQtCbICHMj+gbAKAOtxiV6HsVh/MBdaF9EQ6faSg==
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@babel/runtime@^7.4.3":
+"@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.3":
   version "7.4.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.5.tgz#582bb531f5f9dc67d2fcb682979894f75e253f12"
   integrity sha512-TuI4qpWZP6lGOGIuGWtp9sPluqYICmbk8T/1vpSysqJxRPkudh/ofFWyqdcMsDf2s7KvDL4/YHgKyvcS3g9CJQ==
@@ -820,16 +820,16 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^12.0.9"
 
-"@material-ui/core@^4.0.0-beta.1":
-  version "4.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.0.0-beta.1.tgz#5f8f47b66e92f266abbad6cfcc9efa6e5d87e54c"
-  integrity sha512-QuUKg7+myF+UdBs1MrCNo5N02sbXgfji7OQ8ImWzQRcwhB0uVqmGhB7rPiQnq8yb32e1X37btCinjE+gxdY1XA==
+"@material-ui/core@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.0.0.tgz#f8bead508cc727188e5d819ae937aa928d83857b"
+  integrity sha512-mLEGTuzgUALRKFI3hkRcS0gi/cB3XV0JA4F5PT3rGUt7Dc4liu8/IGiHF7iQh+p337FMk8vkEMxMVdYd9JXKMQ==
   dependencies:
     "@babel/runtime" "^7.2.0"
-    "@material-ui/styles" "^4.0.0-beta.1"
-    "@material-ui/system" "^4.0.0-beta.1"
-    "@material-ui/types" "^4.0.0-beta.2"
-    "@material-ui/utils" "^4.0.0-beta.1"
+    "@material-ui/styles" "^4.0.0"
+    "@material-ui/system" "^4.0.0"
+    "@material-ui/types" "^4.0.0"
+    "@material-ui/utils" "^4.0.0"
     "@types/react-transition-group" "^2.0.16"
     clsx "^1.0.2"
     convert-css-length "^1.0.2"
@@ -845,22 +845,22 @@
     react-transition-group "^4.0.0"
     warning "^4.0.1"
 
-"@material-ui/icons@^4.0.0-beta.0":
-  version "4.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@material-ui/icons/-/icons-4.0.0-beta.0.tgz#9d117e72d7d690f6e212e02dcf491898145c5660"
-  integrity sha512-xowrittZJR0wrD1uubEnnv/k1gBBodPiPjJoOztWGjbFu9/q5hvZZyFkeiq1VMgyhlkKIvo6BzTKPSMl2+1sow==
+"@material-ui/icons@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@material-ui/icons/-/icons-4.0.0.tgz#1dec886098663e08dc80f38c5c06d70b21dfc4e7"
+  integrity sha512-hXoKnVLmVer+kic84ypoyG3Amym3a8q3pvDg4KYjeKW9fxGru7x/IkelBJODQL0jO+nAPz1+9RNpFWC75v35dg==
   dependencies:
     "@babel/runtime" "^7.2.0"
 
-"@material-ui/styles@^4.0.0-beta.1":
-  version "4.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@material-ui/styles/-/styles-4.0.0-beta.1.tgz#a552fe402763f0579cbd39e79a9e42fbf6762139"
-  integrity sha512-k41Xw6U6CHLNupWMCcc5w7AONNddsZVTUL7qe6nIMWZeBdLxX77N/nNZBq5sU2aFY5sShB8JwXK5X/xhDNfPgg==
+"@material-ui/styles@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@material-ui/styles/-/styles-4.0.0.tgz#789461e3e2b484a26206db7656c78b3248904f3b"
+  integrity sha512-TUpmXlyZDVOl6E2//+UzsZxgi2E+2L753QY02nNkbAC6PPx8FUBqvnjYSGqX0V/BjTJ/fD4CkoS6ZpY3lHf+Gg==
   dependencies:
     "@babel/runtime" "^7.2.0"
     "@emotion/hash" "^0.7.1"
-    "@material-ui/types" "^4.0.0-beta.2"
-    "@material-ui/utils" "^4.0.0-beta.1"
+    "@material-ui/types" "^4.0.0"
+    "@material-ui/utils" "^4.0.0"
     clsx "^1.0.2"
     deepmerge "^3.0.0"
     hoist-non-react-statics "^3.2.1"
@@ -875,25 +875,25 @@
     prop-types "^15.7.2"
     warning "^4.0.1"
 
-"@material-ui/system@^4.0.0-beta.1":
-  version "4.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@material-ui/system/-/system-4.0.0-beta.1.tgz#6e170d72b8f4944f1d9d915f435967d1a7bcdac3"
-  integrity sha512-SXmS3PYF2SzRLpcGPydqZkxJlQACQWPahKjb7VYkOucKWcHBQNEE2fD5q/A1izaGNAXMnE082butdkyZD2Kf0g==
+"@material-ui/system@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@material-ui/system/-/system-4.0.0.tgz#bb9a03aa3cf0405c2159c2408b7b8b20b959b119"
+  integrity sha512-SIsqIwjix98Mqw9LVAmRqTs10E4S/SP5n5mlBlhHVHI+2XG2c+MaCPzOF2Zxq0KdqOMgTb7/aevR3mG9UmODxg==
   dependencies:
     "@babel/runtime" "^7.2.0"
     deepmerge "^3.0.0"
     prop-types "^15.7.2"
     warning "^4.0.1"
 
-"@material-ui/types@^4.0.0-beta.2":
-  version "4.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@material-ui/types/-/types-4.0.0-beta.2.tgz#aa686548f6eca0b055249cdeb089973f33ab6976"
-  integrity sha512-Fct55vzMMUyiJqCBkBLERSrB2rdD7C4vbWtJcnhHaGSpAayG3jxhbxEoxm96UHsuI1DZAN7DdxwA4Y+w+pi78Q==
+"@material-ui/types@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@material-ui/types/-/types-4.0.0.tgz#6804123b1c5d56db232fc54fe745c5b1c3ef7306"
+  integrity sha512-wuiQMo8nSljZR1oWh57UQYssdtFqaU+Cbhr16uLohzzTllpCAK4LkH0slnH3n+5vCa2dgOdNlZTrmsIDDwvRJQ==
 
-"@material-ui/utils@^4.0.0-beta.1":
-  version "4.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@material-ui/utils/-/utils-4.0.0-beta.1.tgz#d5d566e38e21287a095e030d0bf465ea4f195633"
-  integrity sha512-DXheNh0CQ5y9QBFmXom3+lwKjFMLS1aBog40870fH3i0P0isVweSqVGadVDoyX9ma6cV/DfcLFSsb1+CBgNA1g==
+"@material-ui/utils@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@material-ui/utils/-/utils-4.0.0.tgz#cfe8da2328afea8fbc5599d8e7abd64e25828bc3"
+  integrity sha512-gjz52hO1hkIbKPMng1diQybVgtfgCptOCrulUs4emSCHHKUoR1zfT+IUrjgOaKIpYZNOgS/CI7KDMp689+FzeQ==
   dependencies:
     "@babel/runtime" "^7.2.0"
     prop-types "^15.7.2"
