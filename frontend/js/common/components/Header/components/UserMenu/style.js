@@ -7,6 +7,7 @@ const style = theme => ({
     height: theme.spacing(4),
     width: theme.spacing(4),
     fontSize: '1rem',
+    background: theme.palette.secondary.main,
   },
 });
 
