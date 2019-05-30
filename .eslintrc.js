@@ -45,6 +45,7 @@ module.exports = {
      "import/extensions": "off",
      "react/prefer-stateless-function": "off",
      "react/forbid-prop-types": "off",
+     "react/jsx-one-expression-per-line": "off",
      "quotes": [
        "error",
        "single",

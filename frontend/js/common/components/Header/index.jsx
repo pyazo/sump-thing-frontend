@@ -14,7 +14,7 @@ import style from './style';
 
 const useStyles = makeStyles(style);
 
-export default function Header({ elevated, text }) {
+export default function Header({ elevated, text, user }) {
   const classes = useStyles();
 
   const auth = useSelector(state => state.auth);
@@ -25,7 +25,7 @@ export default function Header({ elevated, text }) {
         <Grid item sm={4} xs={6}>
           <Typography align="center" variant="subtitle1">{text || 'Sump Thing'}</Typography>
         </Grid>
-        { auth.isLoggedIn ? <UserMenu /> : <JoinButton /> }
+        { auth.isLoggedIn ? <UserMenu user={user} /> : <JoinButton /> }
       </Grid>
     </Grid>
   );
@@ -34,9 +34,11 @@ export default function Header({ elevated, text }) {
 Header.propTypes = {
   elevated: PropTypes.bool,
   text: PropTypes.string,
+  user: PropTypes.object,
 };
 
 Header.defaultProps = {
   elevated: false,
   text: '',
+  user: {},
 };

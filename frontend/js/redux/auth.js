@@ -11,7 +11,7 @@ const LOGIN_FAIL = 'sumpthing/auth/login_fail';
 const LOGOUT_SUCCESS = 'sumpthing/auth/logged_out';
 const LOGOUT_FAIL = 'sumpthing/auth/logout_fail';
 
-export default function reducer(state = {}, action = {}) {
+export default function reducer(state = {}, action) {
   switch (action.type) {
     case LOADING:
       return { ...state, loading: true, error: null };

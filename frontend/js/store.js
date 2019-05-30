@@ -1,6 +1,3 @@
-/* eslint-disable */
-//* Eslint is disabled because of some webpack issue.
-//TODO: Fix webpack issue & remove eslint-disable from this file.
 import {
   applyMiddleware, createStore, compose, combineReducers,
 } from 'redux';
@@ -10,6 +7,7 @@ import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 
 import auth from 'js/redux/auth';
+import currentUser from 'js/redux/currentUser';
 
 export const history = createBrowserHistory();
 
@@ -27,10 +25,13 @@ export default function configureStore(initialState = {}) {
     combineReducers({
       router: connectRouter(history),
       auth,
+      currentUser,
     }),
     initialState,
     compose(
       applyMiddleware(...middleware),
+
+      // eslint-disable-next-line
       window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f
     ),
   );
