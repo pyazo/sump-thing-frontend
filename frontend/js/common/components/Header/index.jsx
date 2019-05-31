@@ -18,6 +18,7 @@ export default function Header({ elevated, text, user }) {
   const classes = useStyles();
 
   const auth = useSelector(state => state.auth);
+  const currentUser = useSelector(state => state.currentUser);
 
   return (
     <Grid item xs={12} className={`${classes.container} ${elevated && classes.elevated}`}>
@@ -25,7 +26,7 @@ export default function Header({ elevated, text, user }) {
         <Grid item sm={4} xs={6}>
           <Typography align="center" variant="subtitle1">{text || 'Sump Thing'}</Typography>
         </Grid>
-        { auth.isLoggedIn ? <UserMenu user={user} /> : <JoinButton /> }
+        { auth.isLoggedIn && !currentUser.loading ? <UserMenu user={user} /> : <JoinButton /> }
       </Grid>
     </Grid>
   );
