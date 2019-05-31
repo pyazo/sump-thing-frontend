@@ -28,6 +28,8 @@ export default function UserMenu({ user }) {
     setAnchor(anchor ? null : e.currentTarget);
   };
 
+  const handleClose = () => setAnchor(null);
+
   const getArrow = () => {
     if (!menuOpen) return <ArrowDropDown className={classes.arrow} />;
 
@@ -43,7 +45,7 @@ export default function UserMenu({ user }) {
             {user.first_name} {user.last_name} { getArrow() }
           </Typography>
         </ButtonBase>
-        <Menu id="test" open={menuOpen} anchor={anchor} />
+        <Menu id="test" open={menuOpen} anchor={anchor} handleClose={handleClose} />
       </Grid>
     </Grid>
   );

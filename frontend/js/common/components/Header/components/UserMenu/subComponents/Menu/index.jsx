@@ -7,9 +7,11 @@ import Paper from '@material-ui/core/Paper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 
 import Add from '@material-ui/icons/Add';
 import Settings from '@material-ui/icons/Settings';
+import PowerSettingsNew from '@material-ui/icons/PowerSettingsNew';
 
 import { makeStyles } from '@material-ui/styles';
 
@@ -17,7 +19,7 @@ import style from './style';
 
 const useStyles = makeStyles(style);
 
-export default function Menu({ id, open, anchor }) {
+export default function Menu({ id, open, anchor, handleClose }) {
   const classes = useStyles();
 
   return (
@@ -26,23 +28,30 @@ export default function Menu({ id, open, anchor }) {
         ({ TransitionProps }) => (
           <Fade {...TransitionProps} timeout={350}>
             <Paper>
-              <MenuList>
-                <MenuItem>
-                  <ListItemIcon>
-                    <Add />
-                  </ListItemIcon>
+              <ClickAwayListener onClickAway={handleClose}>
+                <MenuList>
+                  <MenuItem>
+                    <ListItemIcon>
+                      <Add />
+                    </ListItemIcon>
 
-                  Register new system
-                </MenuItem>
-                <MenuItem>
-                  <ListItemIcon>
-                    <Settings />
-                  </ListItemIcon>
+                    Register new system
+                  </MenuItem>
+                  <MenuItem>
+                    <ListItemIcon>
+                      <Settings />
+                    </ListItemIcon>
 
-                  Settings
-                </MenuItem>
-                <MenuItem>Logout</MenuItem>
-              </MenuList>
+                    Settings
+                  </MenuItem>
+                  <MenuItem>
+                    <ListItemIcon>
+                      <PowerSettingsNew />
+                    </ListItemIcon>
+                    Logout
+                  </MenuItem>
+                </MenuList>
+              </ClickAwayListener>
             </Paper>
           </Fade>
         )
@@ -59,6 +68,7 @@ Menu.propTypes = {
     PropTypes.object,
     PropTypes.array,
   ]),
+  handleClose: PropTypes.func.isRequired,
 };
 
 Menu.defaultProps = {
