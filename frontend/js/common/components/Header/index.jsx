@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 
 import { makeStyles } from '@material-ui/styles';
 
-import JoinButton from './components/JoinButton';
+import UnauthedActions from './components/UnauthedActions';
 import UserMenu from './components/UserMenu';
 
 import style from './style';
@@ -26,7 +26,7 @@ export default function Header({ elevated, text, user }) {
         <Grid item sm={4} xs={6}>
           <Typography align="center" variant="subtitle1">{text || 'Sump Thing'}</Typography>
         </Grid>
-        { auth.isLoggedIn && !currentUser.loading ? <UserMenu user={user} /> : <JoinButton /> }
+        { auth.isLoggedIn && !currentUser.loading ? <UserMenu user={user} /> : <UnauthedActions /> }
       </Grid>
     </Grid>
   );

@@ -11,7 +11,7 @@ import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 
 import Add from '@material-ui/icons/Add';
 import Settings from '@material-ui/icons/Settings';
-import PowerSettingsNew from '@material-ui/icons/PowerSettingsNew';
+import Logout from 'js/common/icons/Logout';
 
 import { makeStyles } from '@material-ui/styles';
 
@@ -46,7 +46,7 @@ export default function Menu({ id, open, anchor, handleClose }) {
                   </MenuItem>
                   <MenuItem>
                     <ListItemIcon>
-                      <PowerSettingsNew />
+                      <Logout className={classes.logout} />
                     </ListItemIcon>
                     Logout
                   </MenuItem>

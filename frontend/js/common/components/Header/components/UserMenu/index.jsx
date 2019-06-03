@@ -42,7 +42,7 @@ export default function UserMenu({ user }) {
         <ButtonBase className={classes.button} onClick={toggleMenu}>
           <Avatar className={classes.avatar}>{avatar}</Avatar>
           <Typography variant="body1" className={classes.name}>
-            {`${user.first_name}${user.last_name}`}
+            {`${user.first_name} ${user.last_name}`}
             { getArrow() }
           </Typography>
         </ButtonBase>
