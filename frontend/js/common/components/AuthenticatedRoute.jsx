@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 
 import Loading from 'js/common/components/Loading';
-import { validateToken } from 'js/redux/auth';
+import { validateToken, logout } from 'js/redux/auth';
 
 export default function AuthenticatedRoute({ path, component }) {
   const auth = useSelector(state => state.auth);
@@ -13,7 +13,10 @@ export default function AuthenticatedRoute({ path, component }) {
   function renderComponent() {
     if (!auth.hasAuthed && !auth.loading) dispatch(validateToken());
 
-    if (auth.hasAuthed && !auth.isLoggedIn) return <Redirect to="/login" />;
+    if (auth.hasAuthed && !auth.isLoggedIn) {
+      dispatch(logout());
+      return <Redirect to="/login" />;
+    }
 
     if (auth.hasAuthed && auth.isLoggedIn) return React.createElement(component);
 
