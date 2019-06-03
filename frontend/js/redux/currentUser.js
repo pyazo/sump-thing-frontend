@@ -1,10 +1,13 @@
 import api from 'js/api';
 
-const LOADING = 'current_user/loading';
-const GET_USER_SUCCESS = 'current_user/success';
-const GET_USER_FAIL = 'current_user/fail';
+const LOADING = 'sumpthing/current_user/loading';
+const GET_USER_SUCCESS = 'sumpthing/current_user/success';
+const GET_USER_FAIL = 'sumpthing/current_user/fail';
+export const RESET_CURRENT_USER = 'sumpthing/current_user/reset';
 
-export default function reducer(state = { loading: true }, action) {
+const initialState = { loading: true };
+
+export default function reducer(state = initialState, action) {
   switch (action.type) {
     case LOADING:
       return {
@@ -14,6 +17,8 @@ export default function reducer(state = { loading: true }, action) {
       return { ...state, loading: false, user: action.user };
     case GET_USER_FAIL:
       return { ...state, loading: false, error: action.error };
+    case RESET_CURRENT_USER:
+      return initialState;
     default:
       return state;
   }

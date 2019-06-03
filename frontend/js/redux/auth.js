@@ -3,15 +3,18 @@ import { push } from 'connected-react-router';
 
 import api from 'js/api';
 
+import { RESET_CURRENT_USER } from './currentUser';
+
 const LOADING = 'sumpthing/auth/loading';
 const AUTH_SUCCESS = 'sumpthing/auth/authenticated';
 const AUTH_FAIL = 'sumpthing/auth/unauthenticated';
 const LOGIN_SUCCESS = 'sumpthing/auth/logged_in';
 const LOGIN_FAIL = 'sumpthing/auth/login_fail';
-const LOGOUT_SUCCESS = 'sumpthing/auth/logged_out';
-const LOGOUT_FAIL = 'sumpthing/auth/logout_fail';
+const LOGOUT = 'sumpthing/auth/logout';
 
-export default function reducer(state = {}, action) {
+const initialState = {};
+
+export default function reducer(state = initialState, action) {
   switch (action.type) {
     case LOADING:
       return { ...state, loading: true, error: null };
@@ -31,6 +34,8 @@ export default function reducer(state = {}, action) {
       return {
         ...state, loading: false, isLoggedIn: false, hasAuthed: true,
       };
+    case LOGOUT:
+      return initialState;
     default:
       return state;
   }
@@ -77,5 +82,16 @@ export function validateToken() {
 
       dispatch({ type: AUTH_FAIL });
     }
+  };
+}
+
+export function logout() {
+  return async (dispatch) => {
+    store.remove('token');
+
+    dispatch(push('/'));
+
+    dispatch({ type: LOGOUT });
+    dispatch({ type: RESET_CURRENT_USER });
   };
 }

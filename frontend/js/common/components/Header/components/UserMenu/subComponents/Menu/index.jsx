@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 
 import Popper from '@material-ui/core/Popper';
 import Fade from '@material-ui/core/Fade';
@@ -15,12 +16,18 @@ import Logout from 'js/common/icons/Logout';
 
 import { makeStyles } from '@material-ui/styles';
 
+import { logout } from 'js/redux/auth';
+
 import style from './style';
 
 const useStyles = makeStyles(style);
 
-export default function Menu({ id, open, anchor, handleClose }) {
+export default function Menu({
+  id, open, anchor, handleClose,
+}) {
   const classes = useStyles();
+
+  const dispatch = useDispatch();
 
   return (
     <Popper id={id} open={open} anchorEl={anchor} transition className={classes.menuWrapper}>
@@ -44,7 +51,7 @@ export default function Menu({ id, open, anchor, handleClose }) {
 
                     Settings
                   </MenuItem>
-                  <MenuItem>
+                  <MenuItem onClick={() => dispatch(logout())}>
                     <ListItemIcon>
                       <Logout className={classes.logout} />
                     </ListItemIcon>
@@ -58,7 +65,7 @@ export default function Menu({ id, open, anchor, handleClose }) {
       }
     </Popper>
   );
-};
+}
 
 Menu.propTypes = {
   id: PropTypes.string,
