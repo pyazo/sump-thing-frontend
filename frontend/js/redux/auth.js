@@ -89,9 +89,9 @@ export function logout() {
   return async (dispatch) => {
     store.remove('token');
 
-    dispatch(push('/'));
-
     dispatch({ type: LOGOUT });
     dispatch({ type: RESET_CURRENT_USER });
+
+    dispatch(push('/login'));
   };
 }
