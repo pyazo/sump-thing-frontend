@@ -22,7 +22,7 @@ const style = theme => ({
     marginTop: theme.spacing(5),
   },
   trouble: {
-    color: theme.palette.grey[600],
+    color: theme.palette.text.secondary,
     cursor: 'pointer',
     marginTop: theme.spacing(1),
     '&:hover': {

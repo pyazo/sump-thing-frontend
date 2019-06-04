@@ -13,6 +13,7 @@ const style = theme => ({
     width: theme.spacing(4),
     fontSize: '1rem',
     background: theme.palette.secondary.main,
+    color: theme.palette.secondary.contrastText,
   },
   arrow: {
     marginBottom: theme.spacing(-1),

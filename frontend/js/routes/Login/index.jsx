@@ -96,7 +96,7 @@ export default function Login() {
 
             <Grid item xs={12}>
               <Typography align="center" variant="body2" className={classes.trouble}>
-                Forgot Password
+                Forgot password?
               </Typography>
             </Grid>
           </Grid>
