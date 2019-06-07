@@ -27,6 +27,7 @@ Sump thing is an affordable aquarium monitor which is totally open source. The f
 
 Contributions are welcomed and, in fact, encouraged. Here is how to make a contribution:
 
+- Create an issue for the feature or bugfix you are working on, or denote that you are PRing a current issue in the near future.
 - Fork the repo
 - Create a branch called `patch:<number>`.
    - For your first contribution, `patch:1` will work.
