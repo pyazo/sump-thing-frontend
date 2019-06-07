@@ -57,14 +57,14 @@
   },
   "scripts": {
     "dev": "webpack-dev-server --config config/webpack/main.js --colors",
-    "test": "./node_modules/.bin/jest --setupTestFrameworkScriptFile='<rootDir>/frontend/js/setup/.setup.js' --verbose",
-    "test:watch": "./node_modules/.bin/jest --watch --setupTestFrameworkScriptFile='<rootDir>/frontend/js/setup/.setup.js'",
+    "test": "./node_modules/.bin/jest --setupTestFrameworkScriptFile='<rootDir>/jest.setup.js' --verbose",
+    "test:watch": "./node_modules/.bin/jest --watch --setupTestFrameworkScriptFile='<rootDir>/jest.setup.js'",
     "build": "webpack --config config/webpack/production.js"
   },
   "jest": {
     "moduleNameMapper": {
       "^js/(.*)": "<rootDir>/frontend/js/$1",
-      "\\.(jpg|jpeg|png|gif|svg)$": "<rootDir>/frontend/js/setup/__mocks__/file.js"
+      "\\.(jpg|jpeg|png|gif|svg)$": "<rootDir>/__mocks__/file.js"
     }
   },
   "babel": {
