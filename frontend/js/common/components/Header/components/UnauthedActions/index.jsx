@@ -11,7 +11,7 @@ import style from './style';
 
 const useStyles = makeStyles(style);
 
-export default function UnauthedActions({ history }) {
+export default function UnauthedActions() {
   const classes = useStyles(style);
 
   const dispatch = useDispatch();

@@ -57,23 +57,15 @@ export default class Request {
 
   remove = (id, auth = false) => {
     if (this.calls.includes('remove')) {
-      return Request.request('delete', `${this.endpoint}/${id}`, {}, this.auth || auth);
+      return Request.request('DELETE', `${this.endpoint}/${id}`, {}, this.auth || auth);
     }
     throw new RequestException('RemoveNotValid');
   }
 
   update = (id, data, auth = false) => {
     if (this.calls.includes('update')) {
-      return Request.request('put', `${this.endpoint}/${id}`, data, this.auth || auth);
+      return Request.request('PUT', `${this.endpoint}/${id}`, data, this.auth || auth);
     }
     throw new RequestException('UpdateNotValid');
-  }
-
-  listForAccount = (id, auth = false) => {
-    if (this.calls.includes('listForAccount')) {
-      return Request.request('GET', `${this.endpoint}/account/${id}`, {}, this.auth || auth);
-    }
-
-    throw new RequestException('ListForAccountNotValid');
   }
 }

@@ -24,6 +24,7 @@ module.exports = {
     "globals": {
       "expect": true,
       "globals": true,
+      "jest": true,
     },
     "rules": {
       "no-warning-comments": "off",
