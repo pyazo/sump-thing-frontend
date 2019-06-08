@@ -58,7 +58,7 @@
   "scripts": {
     "dev": "webpack-dev-server --config config/webpack/main.js --colors",
     "test": "./node_modules/.bin/jest --setupTestFrameworkScriptFile='<rootDir>/jest.setup.js' --verbose",
-    "coverage": "./node_modules/.bin/jest --setupTestFrameworkScriptFile='<rootDir>/jest.setup.js' --collect-coverage --collect-coverage-from=./frontend/js/** --collect-coverage-from=!**/style.js --collect-coverage-from=!**/main.js",
+    "coverage": "./node_modules/.bin/jest --setupTestFrameworkScriptFile='<rootDir>/jest.setup.js' --collect-coverage",
     "test:watch": "./node_modules/.bin/jest --watch --setupTestFrameworkScriptFile='<rootDir>/jest.setup.js'",
     "build": "webpack --config config/webpack/production.js"
   },
@@ -66,7 +66,14 @@
     "moduleNameMapper": {
       "^js/(.*)": "<rootDir>/frontend/js/$1",
       "\\.(jpg|jpeg|png|gif|svg)$": "<rootDir>/__mocks__/file.js"
-    }
+    },
+    "coverageDirectory": "<rootDir>/frontend/js",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "style.js",
+      "<rootDir>/frontend/js/api/index.js",
+      "<rootDir>/frontend/js/common/icons"
+    ]
   },
   "babel": {
     "plugins": [

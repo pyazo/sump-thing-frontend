@@ -3,3 +3,7 @@ yarn-error.log
 .DS_Store
 cc
 coverage
+lcov-report
+clover.xml
+coverage-final.json
+lcov.info
