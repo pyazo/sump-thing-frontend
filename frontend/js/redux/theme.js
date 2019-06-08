@@ -1,4 +1,4 @@
-const CHANGE_THEME = 'sumpthing/theme/change';
+export const CHANGE_THEME = 'sumpthing/theme/change';
 
 const initialState = { current: 'light' };
 

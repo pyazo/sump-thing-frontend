@@ -5,12 +5,12 @@ import api from 'js/api';
 
 import { RESET_CURRENT_USER } from './currentUser';
 
-const LOADING = 'sumpthing/auth/loading';
-const AUTH_SUCCESS = 'sumpthing/auth/authenticated';
-const AUTH_FAIL = 'sumpthing/auth/unauthenticated';
-const LOGIN_SUCCESS = 'sumpthing/auth/logged_in';
-const LOGIN_FAIL = 'sumpthing/auth/login_fail';
-const LOGOUT = 'sumpthing/auth/logout';
+export const LOADING = 'sumpthing/auth/loading';
+export const AUTH_SUCCESS = 'sumpthing/auth/authenticated';
+export const AUTH_FAIL = 'sumpthing/auth/unauthenticated';
+export const LOGIN_SUCCESS = 'sumpthing/auth/logged_in';
+export const LOGIN_FAIL = 'sumpthing/auth/login_fail';
+export const LOGOUT = 'sumpthing/auth/logout';
 
 const initialState = {};
 
@@ -18,14 +18,6 @@ export default function reducer(state = initialState, action) {
   switch (action.type) {
     case LOADING:
       return { ...state, loading: true, error: null };
-    case LOGIN_SUCCESS:
-      return {
-        ...state, loading: false, error: null,
-      };
-    case LOGIN_FAIL:
-      return {
-        ...state, loading: false, error: action.error,
-      };
     case AUTH_SUCCESS:
       return {
         ...state, loading: false, isLoggedIn: true, hasAuthed: true,
@@ -33,6 +25,14 @@ export default function reducer(state = initialState, action) {
     case AUTH_FAIL:
       return {
         ...state, loading: false, isLoggedIn: false, hasAuthed: true,
+      };
+    case LOGIN_SUCCESS:
+      return {
+        ...state, loading: false, error: null,
+      };
+    case LOGIN_FAIL:
+      return {
+        ...state, loading: false, error: action.error,
       };
     case LOGOUT:
       return initialState;
@@ -53,7 +53,7 @@ export function login(username, password) {
         return;
       }
 
-      await dispatch({ type: AUTH_SUCCESS });
+      dispatch({ type: AUTH_SUCCESS });
 
       store.set('token', data.access_token);
 

@@ -1,8 +1,8 @@
 import api from 'js/api';
 
-const LOADING = 'sumpthing/current_user/loading';
-const GET_USER_SUCCESS = 'sumpthing/current_user/success';
-const GET_USER_FAIL = 'sumpthing/current_user/fail';
+export const LOADING = 'sumpthing/current_user/loading';
+export const GET_USER_SUCCESS = 'sumpthing/current_user/success';
+export const GET_USER_FAIL = 'sumpthing/current_user/fail';
 export const RESET_CURRENT_USER = 'sumpthing/current_user/reset';
 
 const initialState = { loading: true };
