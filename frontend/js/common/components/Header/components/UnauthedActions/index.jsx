@@ -20,10 +20,14 @@ export default function UnauthedActions() {
     dispatch(push('/login'));
   };
 
+  const toSignup = () => {
+    dispatch(push('/signup'));
+  };
+
   return (
     <Grid item sm={4} xs={6}>
       <Grid container justify="center">
-        <Button color="secondary" variant="contained">
+        <Button color="secondary" variant="contained" onClick={toSignup}>
           Join Now
         </Button>
         <Button className={classes.login} onClick={toLogin}>
