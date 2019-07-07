@@ -15,8 +15,8 @@ import style from './style';
 const useStyles = makeStyles(style);
 
 export default function Signup() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [first_name, setFirstName] = useState('');
+  const [last_name, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -35,9 +35,9 @@ export default function Signup() {
               <Grid item md={6} xs={12} className={classes.textFieldContainer}>
                 <TextField
                   className={classes.textField}
-                  value={firstName}
+                  value={first_name}
                   label="First Name"
-                  name="firstName"
+                  name="first_name"
                   onChange={e => setFirstName(e.target.value)}
                   fullWidth
                 />
@@ -45,9 +45,9 @@ export default function Signup() {
               <Grid item md={6} xs={12} className={classes.textFieldContainer}>
                 <TextField
                   className={classes.textField}
-                  value={lastName}
+                  value={last_name}
                   label="Last Name"
-                  name="lastName"
+                  name="last_name"
                   onChange={e => setLastName(e.target.value)}
                   fullWidth
                 />

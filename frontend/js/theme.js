@@ -18,6 +18,12 @@ const baseTheme = {
     },
     error: red,
   },
+  sizes: {
+    card: {
+      width: 250,
+      height: 250,
+    },
+  },
 };
 
 export const light = createMuiTheme({

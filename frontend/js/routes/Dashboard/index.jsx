@@ -9,6 +9,8 @@ import Header from 'js/common/components/Header';
 import Loading from 'js/common/components/Loading';
 import { getCurrentUser } from 'js/redux/currentUser';
 
+import TankList from './Widgets/TankList';
+
 import style from './style';
 
 const useStyles = makeStyles(style);
@@ -32,7 +34,7 @@ export default function Dashboard() {
   return (
     <Grid container>
       <Header elevated text="Dashboard" user={user} />
-      Welcome to your dashboard.
+      <TankList />
     </Grid>
   );
 }
