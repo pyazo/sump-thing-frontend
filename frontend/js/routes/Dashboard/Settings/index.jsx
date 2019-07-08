@@ -52,7 +52,7 @@ export default function Settings() {
         <Typography variant="h3" align="center" className={classes.pageTitle}>Settings</Typography>
       </Grid>
 
-      <Grid item xs={8}>
+      <Grid item xs={10} sm={8} md={6}>
         <Paper>
           <List subheader={<ListSubheader>Display</ListSubheader>}>
             <ListItem>
