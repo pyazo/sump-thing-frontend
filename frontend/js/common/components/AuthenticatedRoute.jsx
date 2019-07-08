@@ -6,7 +6,7 @@ import { Route } from 'react-router-dom';
 import Loading from 'js/common/components/Loading';
 import { validateToken, logout } from 'js/redux/auth';
 
-export default function AuthenticatedRoute({ path, component }) {
+export default function AuthenticatedRoute({ path, component, exact }) {
   const auth = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
@@ -23,7 +23,7 @@ export default function AuthenticatedRoute({ path, component }) {
     return <Loading />;
   }
 
-  return <Route path={path} render={renderComponent} />;
+  return <Route path={path} exact={exact} render={renderComponent} />;
 }
 
 AuthenticatedRoute.propTypes = {
@@ -33,4 +33,9 @@ AuthenticatedRoute.propTypes = {
     PropTypes.func,
   ]).isRequired,
   path: PropTypes.string.isRequired,
+  exact: PropTypes.bool,
+};
+
+AuthenticatedRoute.defaultProps = {
+  exact: false,
 };
