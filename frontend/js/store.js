@@ -8,6 +8,7 @@ import { createLogger } from 'redux-logger';
 
 import auth from 'js/redux/auth';
 import currentUser from 'js/redux/currentUser';
+import newTank from 'js/redux/newTank';
 import theme from 'js/redux/theme';
 
 export const history = createBrowserHistory();
@@ -27,6 +28,7 @@ export default function configureStore(initialState = {}) {
       router: connectRouter(history),
       auth,
       currentUser,
+      newTank,
       theme,
     }),
     initialState,

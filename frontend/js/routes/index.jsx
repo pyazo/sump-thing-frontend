@@ -7,6 +7,7 @@ import Login from './Login';
 import Signup from './Signup';
 import Dashboard from './Dashboard';
 import Settings from './Dashboard/Settings';
+import NewTank from './Dashboard/Tank/New';
 
 const routes = [
   <Route exact path="/" component={Landing} />,
@@ -14,6 +15,7 @@ const routes = [
   <Route path="/signup" component={Signup} />,
   <AuthenticatedRoute path="/dashboard" exact component={Dashboard} />,
   <AuthenticatedRoute path="/dashboard/settings" component={Settings} />,
+  <AuthenticatedRoute path="/dashboard/tank/new" component={NewTank} />,
 ];
 
 export default routes;
