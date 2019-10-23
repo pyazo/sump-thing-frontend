@@ -3,7 +3,12 @@ const style = theme => ({
     padding: theme.spacing(2),
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.primary.contrastText,
+    height: theme.spacing(10),
+  },
+  logo: {
     height: theme.spacing(8),
+    marginBottom: theme.spacing(2),
+    marginLeft: theme.spacing(2),
   },
   elevated: {
     boxShadow: theme.shadows[3],
