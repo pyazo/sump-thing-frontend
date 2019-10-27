@@ -24,6 +24,12 @@ const baseTheme = {
       height: 250,
     },
   },
+  typography: {
+    fontFamily: [
+      'Montserrat',
+      'sans-serif',
+    ].join(','),
+  },
 };
 
 export const light = createMuiTheme({
