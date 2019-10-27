@@ -3,7 +3,7 @@ import { push } from 'connected-react-router';
 
 import api from 'js/api';
 
-import { RESET_CURRENT_USER } from './currentUser';
+import { RESET_CURRENT_USER, getCurrentUser } from './currentUser';
 
 export const LOADING = 'sumpthing/auth/loading';
 export const AUTH_SUCCESS = 'sumpthing/auth/authenticated';
@@ -11,6 +11,8 @@ export const AUTH_FAIL = 'sumpthing/auth/unauthenticated';
 export const LOGIN_SUCCESS = 'sumpthing/auth/logged_in';
 export const LOGIN_FAIL = 'sumpthing/auth/login_fail';
 export const LOGOUT = 'sumpthing/auth/logout';
+export const SIGNUP_SUCCESS = 'sumpthing/auth/signed_up';
+export const SIGNUP_FAIL = 'sumpthing/auth/signup_fail';
 
 const initialState = {};
 
@@ -31,6 +33,14 @@ export default function reducer(state = initialState, action) {
         ...state, loading: false, error: null,
       };
     case LOGIN_FAIL:
+      return {
+        ...state, loading: false, error: action.error,
+      };
+    case SIGNUP_SUCCESS:
+      return {
+        ...state, loading: false, error: null, loginMessage: 'Account created successfully, please login.',
+      };
+    case SIGNUP_FAIL:
       return {
         ...state, loading: false, error: action.error,
       };
@@ -77,10 +87,32 @@ export function validateToken() {
       await api.validateToken();
 
       dispatch({ type: AUTH_SUCCESS });
+      dispatch(getCurrentUser());
     } catch (err) {
       console.error(err);
 
       dispatch({ type: AUTH_FAIL });
+    }
+  };
+}
+
+export function signup(firstName, lastName, email, password) {
+  return async (dispatch) => {
+    dispatch({ type: LOADING });
+
+    try {
+      await api.signup({
+        firstName, lastName, email, password,
+      });
+
+      dispatch({ type: SIGNUP_SUCCESS });
+      dispatch(push('/login'));
+    } catch (err) {
+      console.error(err);
+
+      const { data } = err.message.response;
+
+      dispatch({ type: SIGNUP_FAIL, error: data.description || 'Internal server error.' });
     }
   };
 }

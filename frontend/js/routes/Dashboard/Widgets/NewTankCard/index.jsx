@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { push } from 'connected-react-router';
 
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Grid from '@material-ui/core/Grid';
@@ -16,9 +18,10 @@ const useStyles = makeStyles(style);
 export default function NewTankCard() {
 
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   return (
-    <ButtonBase>
+    <ButtonBase onClick={() => dispatch(push('/dashboard/tank/new'))}>
       <Card className={classes.main}>
         <Grid container justify="center" alignItems="center" className={classes.main}>
           <Grid item>
