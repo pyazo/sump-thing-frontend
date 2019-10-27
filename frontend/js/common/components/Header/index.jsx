@@ -29,7 +29,7 @@ export default function Header({ elevated, text }) {
         </Grid>
         {
           auth.isLoggedIn && !currentUser.loading
-            ? <UserMenu user={currentUser.currentUser} />
+            ? <UserMenu user={currentUser.user} />
             : <UnauthedActions />
         }
       </Grid>
