@@ -129,7 +129,13 @@ export default function Signup() {
 
           <Grid item xs={12}>
             <Typography align="center" variant="body2">
-              <Link to="/login" className={classes.existingAccount}>Already have an account? Click here to login.</Link>
+              <button
+                onClick={() => dispatch(push('/login'))}
+                className={classes.existingAccount}
+                type="button"
+              >
+                Already have an account? Click here to login.
+              </button>
             </Typography>
           </Grid>
         </Paper>

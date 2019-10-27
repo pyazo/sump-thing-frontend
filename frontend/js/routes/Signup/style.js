@@ -30,6 +30,7 @@ const style = (theme) => ({
     cursor: 'pointer',
     marginTop: theme.spacing(1),
     textDecoration: 'none',
+    border: 'none',
     '&:hover': {
       textDecoration: 'underline',
     },

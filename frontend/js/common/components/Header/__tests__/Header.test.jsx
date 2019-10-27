@@ -32,34 +32,7 @@ describe('<Header />', () => {
     expect(component).toBeDefined();
   });
 
-  it('renders default text', () => {
-    const text = component
-      .find(Typography)
-      .first()
-      .text();
-
-    expect(text).toEqual('Sump Thing');
-  });
-
-  it('renders a passed in text', () => {
-    component = mount(<Header text="test" />);
-
-    const text = component
-      .find(Typography)
-      .first()
-      .text();
-
-    expect(text).toEqual('test');
-  });
-
   it('renders the correct action', () => {
-    const user = {
-      first_name: 'Test',
-      last_name: 'User',
-    };
-
-    component = mount(<Header user={user} />);
-
     reduxMock.useSelector = (fn) => {
       expect(component.find(Avatar).length).toEqual(0);
 
@@ -68,6 +41,10 @@ describe('<Header />', () => {
           isLoggedIn: true,
         },
         currentUser: {
+          user: {
+            first_name: 'Test',
+            last_name: 'User',
+          },
           loading: false,
         },
       };

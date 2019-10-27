@@ -15,7 +15,7 @@ import style from './style';
 
 const useStyles = makeStyles(style);
 
-export default function Header({ elevated, text }) {
+export default function Header({ elevated }) {
   const classes = useStyles();
 
   const auth = useSelector((state) => state.auth);
@@ -39,10 +39,8 @@ export default function Header({ elevated, text }) {
 
 Header.propTypes = {
   elevated: PropTypes.bool,
-  text: PropTypes.string,
 };
 
 Header.defaultProps = {
   elevated: false,
-  text: '',
 };
