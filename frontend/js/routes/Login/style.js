@@ -36,6 +36,13 @@ const style = theme => ({
     padding: theme.spacing(2),
     marginTop: theme.spacing(2),
   },
+  loginMessage: {
+    color: theme.palette.common.white,
+    background: theme.palette.primary[500],
+    borderRadius: theme.spacing(1),
+    padding: theme.spacing(2),
+    marginTop: theme.spacing(2),
+  },
 });
 
 export default style;

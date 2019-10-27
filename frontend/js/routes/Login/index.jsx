@@ -24,7 +24,7 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const auth = useSelector(state => state.auth);
+  const auth = useSelector((state) => state.auth);
 
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -63,6 +63,16 @@ export default function Login() {
               )
             }
 
+            {
+              auth.loginMessage && (
+                <Grid item xs={12}>
+                  <Typography align="center" variant="subtitle2" className={classes.loginMessage}>
+                    {auth.loginMessage}
+                  </Typography>
+                </Grid>
+              )
+            }
+
             <form onSubmit={() => dispatch(login(email, password))}>
               <Grid item xs={12}>
                 <TextField
@@ -70,7 +80,7 @@ export default function Login() {
                   value={email}
                   label="Email"
                   name="email"
-                  onChange={e => setEmail(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                   fullWidth
                 />
               </Grid>
@@ -82,7 +92,7 @@ export default function Login() {
                   label="Password"
                   name="password"
                   type="password"
-                  onChange={e => setPassword(e.target.value)}
+                  onChange={(e) => setPassword(e.target.value)}
                   fullWidth
                 />
               </Grid>

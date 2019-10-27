@@ -1,4 +1,4 @@
-const style = theme => ({
+const style = (theme) => ({
   container: {
     padding: theme.spacing(2),
     backgroundColor: theme.palette.primary.main,
@@ -6,7 +6,7 @@ const style = theme => ({
     height: theme.spacing(10),
   },
   logo: {
-    height: theme.spacing(8),
+    height: theme.spacing(5),
     marginBottom: theme.spacing(2),
     marginLeft: theme.spacing(2),
   },

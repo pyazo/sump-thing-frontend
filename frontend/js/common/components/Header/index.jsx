@@ -15,11 +15,11 @@ import style from './style';
 
 const useStyles = makeStyles(style);
 
-export default function Header({ elevated, text, user }) {
+export default function Header({ elevated, text }) {
   const classes = useStyles();
 
-  const auth = useSelector(state => state.auth);
-  const currentUser = useSelector(state => state.currentUser);
+  const auth = useSelector((state) => state.auth);
+  const currentUser = useSelector((state) => state.currentUser);
 
   return (
     <Grid item xs={12} className={`${classes.container} ${elevated && classes.elevated}`}>
@@ -27,7 +27,11 @@ export default function Header({ elevated, text, user }) {
         <Grid item sm={4} xs={6}>
           <img className={classes.logo} src={TextLogo} alt="Sump Thing Logo" />
         </Grid>
-        { auth.isLoggedIn && !currentUser.loading ? <UserMenu user={user} /> : <UnauthedActions /> }
+        {
+          auth.isLoggedIn && !currentUser.loading
+            ? <UserMenu user={currentUser.user} />
+            : <UnauthedActions />
+        }
       </Grid>
     </Grid>
   );
@@ -36,11 +40,9 @@ export default function Header({ elevated, text, user }) {
 Header.propTypes = {
   elevated: PropTypes.bool,
   text: PropTypes.string,
-  user: PropTypes.object,
 };
 
 Header.defaultProps = {
   elevated: false,
   text: '',
-  user: {},
 };

@@ -1,4 +1,4 @@
-const style = theme => ({
+const style = (theme) => ({
   main: {
     height: `calc(100vh - ${theme.spacing(8)}px)`,
   },
@@ -29,9 +29,17 @@ const style = theme => ({
     color: theme.palette.text.secondary,
     cursor: 'pointer',
     marginTop: theme.spacing(1),
+    textDecoration: 'none',
     '&:hover': {
       textDecoration: 'underline',
     },
+  },
+  error: {
+    color: theme.palette.common.white,
+    background: theme.palette.error[500],
+    borderRadius: theme.spacing(1),
+    padding: theme.spacing(2),
+    marginTop: theme.spacing(2),
   },
 });
 
