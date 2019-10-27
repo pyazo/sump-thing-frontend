@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 import Grid from '@material-ui/core/Grid';
 
-import LightLogo from 'img/logo-light.svg';
+import TextLogo from 'img/logo-with-text.svg';
 
 import { makeStyles } from '@material-ui/styles';
 
@@ -25,7 +25,7 @@ export default function Header({ elevated, text, user }) {
     <Grid item xs={12} className={`${classes.container} ${elevated && classes.elevated}`}>
       <Grid container justify="space-between" alignItems="center">
         <Grid item sm={4} xs={6}>
-          <img className={classes.logo} src={LightLogo} alt="Sump Thing Logo" />
+          <img className={classes.logo} src={TextLogo} alt="Sump Thing Logo" />
         </Grid>
         { auth.isLoggedIn && !currentUser.loading ? <UserMenu user={user} /> : <UnauthedActions /> }
       </Grid>
